@@ -1,0 +1,4 @@
+ClientName,InvoiceNo,Amount,DueDate,Email,Status
+ABC Ltd,INV001,4800,2025-10-15,abc@abc.co.nz,Unpaid
+Kiwi Construction,INV002,6200,2025-10-28,finance@kiwi.nz,Paid
+BlueTech,INV003,7500,2025-10-10,manager@bluetech.nz,Unpaid
