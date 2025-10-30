@@ -1,51 +1,37 @@
-# 🧾 Overdue Invoice Reminder Flow  
-**BUSACT702 – Robotics Process Automation Assignment (University of Auckland)**  
-**Student:** Suzzy Zhang | **Date:** 31 October 2025  
+<!-- Fancy banner -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/suzzyzhang/Overdue-Invoice-Reminder/main/screenshots/banner.png" width="100%">
+</p>
+
+<h1 align="center">💼 Overdue Invoice Reminder Flow</h1>
+
+<p align="center">
+  <b>University of Auckland | BUSACT702 – Robotics Process Automation Assignment</b><br>
+  <i>Automate your accounting workflow with Microsoft Power Automate</i><br><br>
+  <img src="https://img.shields.io/badge/Tool-Power%20Automate-blue?logo=microsoft&logoColor=white" />
+  <img src="https://img.shields.io/badge/Language-Excel%20%7C%20Outlook-green?logo=microsoftexcel" />
+  <img src="https://img.shields.io/badge/Version-2025-orange" />
+</p>
 
 ---
 
-## 📌 Project Overview
-This Power Automate flow automatically checks overdue invoices from an Excel table stored in OneDrive and sends reminder emails to clients.  
-It helps the accounting team ensure timely payment follow-ups and reduces manual workload.
+## 🧩 Project Overview
+
+This project automates **overdue invoice reminders** using Microsoft Power Automate.  
+Every morning at 9:00 AM, the flow reads an Excel table stored in OneDrive,  
+checks which invoices are **overdue and unpaid**, and automatically sends polite email reminders to clients.
+
+🎯 **Goal:** Improve efficiency, reduce manual follow-ups, and maintain timely communication.
 
 ---
 
-## ⚙️ Flow Logic
-1. Trigger: **Scheduled Cloud Flow** – runs every day at 9:00 AM.  
-2. Action: **Get Rows (Excel Online)** – retrieves invoice records.  
-3. Condition: Checks if `DueDate < Today` AND `Status ≠ Paid`.  
-4. If Yes → Sends reminder email via Outlook.  
-5. Logs reminder actions back into Excel.
+## ⚙️ Flow Logic Diagram
 
----
-
-## 🧩 Key Files
-| File | Description |
-|------|--------------|
-| `OverdueInvoiceReminder.docx` | Full report following BUSACT702 rubric |
-| `InvoiceReminderFlow.zip` | Exported Power Automate package |
-| `screenshots/` | Contains all workflow screenshots |
-
----
-
-## 📸 Screenshots
-| Step | Description | Preview |
-|------|--------------|----------|
-| Step 1 | Create Scheduled Flow | ![Create Flow](screenshots/Step1_CreateFlow.png) |
-| Step 2 | Get Rows (Excel) | ![Get Rows](screenshots/Step2_GetRows.png) |
-| Step 3 | Condition Logic | ![Condition](screenshots/Step4_Condition.png) |
-| Step 4 | Send Email | ![Email Action](screenshots/Step5_EmailAction.png) |
-| Step 5 | Test Run | ![Test Run](screenshots/Step7_TestRun.png) |
-
----
-
-## 🧠 Reflection
-Creating this automation improved my understanding of conditional logic and date comparisons in Power Automate.  
-The process was easy to implement but still provided meaningful business value.  
-Future improvements could include adding Teams notifications and integrating AI Builder for invoice scanning.
-
----
-
-## 🧾 Academic Reference
-- Microsoft. (2025). *Send an email when an Excel row meets a condition.* https://learn.microsoft.com/en-us/power-automate/  
-- OpenAI. (2025). *ChatGPT-assisted RPA documentation workflow.* https://chat.openai.com  
+```mermaid
+graph TD;
+A[Start - Scheduled Flow] --> B[Get Rows from Excel Table];
+B --> C{DueDate < Today AND Status ≠ Paid?};
+C -->|Yes| D[Send Reminder Email via Outlook];
+C -->|No| E[Skip];
+D --> F[Log "Reminder Sent" to Excel];
+F --> G[End];
